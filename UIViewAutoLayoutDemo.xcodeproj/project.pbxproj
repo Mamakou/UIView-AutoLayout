@@ -13,6 +13,7 @@
 		FD69AA0521A2939400886C81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD69AA0421A2939400886C81 /* Assets.xcassets */; };
 		FD69AA0821A2939400886C81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD69AA0621A2939400886C81 /* LaunchScreen.storyboard */; };
 		FD69AA1021A293A500886C81 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69AA0F21A293A500886C81 /* UIView+AutoLayout.swift */; };
+		FD69AA1221A296AB00886C81 /* YMTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69AA1121A296AB00886C81 /* YMTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		FD69AA0721A2939400886C81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD69AA0921A2939400886C81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD69AA0F21A293A500886C81 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		FD69AA1121A296AB00886C81 /* YMTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				FD69A9FD21A2938600886C81 /* AppDelegate.swift */,
 				FD69A9FF21A2938600886C81 /* ViewController.swift */,
+				FD69AA1121A296AB00886C81 /* YMTableViewCell.swift */,
 				FD69AA0F21A293A500886C81 /* UIView+AutoLayout.swift */,
 				FD69AA0121A2938600886C81 /* Main.storyboard */,
 				FD69AA0421A2939400886C81 /* Assets.xcassets */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD69AA0021A2938600886C81 /* ViewController.swift in Sources */,
+				FD69AA1221A296AB00886C81 /* YMTableViewCell.swift in Sources */,
 				FD69AA1021A293A500886C81 /* UIView+AutoLayout.swift in Sources */,
 				FD69A9FE21A2938600886C81 /* AppDelegate.swift in Sources */,
 			);

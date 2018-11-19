@@ -181,7 +181,7 @@ extension UIView {
         return self.ym_autoPinEdgeToSuperviewEdgeRelation(edge: edge, inset: inset, relation: .equal)
     }
     
-    func ym_autoPinEdgeToSuperviewEdgeRelation(edge:YM_ALEdge,inset:CGFloat,relation:NSLayoutRelation) ->NSLayoutConstraint! {
+    func ym_autoPinEdgeToSuperviewEdgeRelation(edge:YM_ALEdge,inset:CGFloat,relation:NSLayoutConstraint.Relation) ->NSLayoutConstraint! {
         self.translatesAutoresizingMaskIntoConstraints = false
         if self.superview == nil {
             print("error:父视图不存在")
@@ -261,7 +261,7 @@ extension UIView {
     ///   - offset: 距离
     ///   - relation: 相对值
     /// - Returns: 约束
-    @discardableResult func ym_autoPinEdgeToEdgeOfViewWithOffsetRelation(edge:YM_ALEdge,toEdge:YM_ALEdge,peerView:UIView,offset:CGFloat,relation:NSLayoutRelation) -> NSLayoutConstraint {
+    @discardableResult func ym_autoPinEdgeToEdgeOfViewWithOffsetRelation(edge:YM_ALEdge,toEdge:YM_ALEdge,peerView:UIView,offset:CGFloat,relation:NSLayoutConstraint.Relation) -> NSLayoutConstraint {
         
         self.translatesAutoresizingMaskIntoConstraints = false
         let attribute = UIView.ym_al_attributeForEdge(edge: edge)
@@ -298,7 +298,7 @@ extension UIView {
     }
     
     
-    @discardableResult func ym_autoMatchDimensionToDimensionOfViewWithOffsetRelation(dimension:YM_ALDimension,toDimension:YM_ALDimension,peerView:UIView,offset:CGFloat,relation:NSLayoutRelation) ->NSLayoutConstraint {
+    @discardableResult func ym_autoMatchDimensionToDimensionOfViewWithOffsetRelation(dimension:YM_ALDimension,toDimension:YM_ALDimension,peerView:UIView,offset:CGFloat,relation:NSLayoutConstraint.Relation) ->NSLayoutConstraint {
         self.translatesAutoresizingMaskIntoConstraints = false
         let arrtibute = UIView.ym_al_attributeForDimension(dimension: dimension)
         let toArrtibute = UIView.ym_al_attributeForDimension(dimension: toDimension)
@@ -315,7 +315,7 @@ extension UIView {
     }
     
     
-    @discardableResult func ym_autoMatchDimensionToDimensionOfViewWithMultiplierRelation(dimension:YM_ALDimension,toDimension:YM_ALDimension,peerView:UIView,multiplier:CGFloat,relation:NSLayoutRelation) ->NSLayoutConstraint {
+    @discardableResult func ym_autoMatchDimensionToDimensionOfViewWithMultiplierRelation(dimension:YM_ALDimension,toDimension:YM_ALDimension,peerView:UIView,multiplier:CGFloat,relation:NSLayoutConstraint.Relation) ->NSLayoutConstraint {
         self.translatesAutoresizingMaskIntoConstraints = false
         let arrtibute = UIView.ym_al_attributeForDimension(dimension: dimension)
         let toArrtibute = UIView.ym_al_attributeForDimension(dimension: toDimension)
@@ -340,10 +340,10 @@ extension UIView {
         return self.ym_autoSetDimensionToSizeRelation(dimension: dimension, size: size, relation: .equal)
     }
     
-    @discardableResult func ym_autoSetDimensionToSizeRelation(dimension:YM_ALDimension,size:CGFloat,relation:NSLayoutRelation) ->NSLayoutConstraint {
+    @discardableResult func ym_autoSetDimensionToSizeRelation(dimension:YM_ALDimension,size:CGFloat,relation:NSLayoutConstraint.Relation) ->NSLayoutConstraint {
         self.translatesAutoresizingMaskIntoConstraints = false
         let arrtibute = UIView.ym_al_attributeForDimension(dimension: dimension)
-        let constraint = NSLayoutConstraint(item: self, attribute: arrtibute, relatedBy: relation, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 0.0, constant: size)
+        let constraint = NSLayoutConstraint(item: self, attribute: arrtibute, relatedBy: relation, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 0.0, constant: size)
         constraint.ym_autoInstall()
         return constraint
     }
@@ -384,7 +384,7 @@ extension UIView {
     }
     
     
-    @discardableResult func ym_autoConstrainAttributeToAttributeOfViewWithOffsetRelation(ALAttribute:Int,toALAttribute:Int,peerView:UIView,offset:CGFloat,relation:NSLayoutRelation) ->NSLayoutConstraint {
+    @discardableResult func ym_autoConstrainAttributeToAttributeOfViewWithOffsetRelation(ALAttribute:Int,toALAttribute:Int,peerView:UIView,offset:CGFloat,relation:NSLayoutConstraint.Relation) ->NSLayoutConstraint {
         self.translatesAutoresizingMaskIntoConstraints = false
         let attribute = UIView.ym_al_attributeForALAttribute(ALAttribute: ALAttribute)
         let toAttribute = UIView.ym_al_attributeForALAttribute(ALAttribute: toALAttribute)
@@ -398,7 +398,7 @@ extension UIView {
         return self.ym_autoConstrainAttributeToALAttributeOfViewWithMultiplierRelation(ALAttribute: ALAttribute, toALAttribute: toALAttribute, peerView: peerView, multiplier: multiplier, relation: .equal)
     }
     
-    @discardableResult func ym_autoConstrainAttributeToALAttributeOfViewWithMultiplierRelation(ALAttribute:Int,toALAttribute:Int,peerView:UIView,multiplier:CGFloat,relation:NSLayoutRelation) ->NSLayoutConstraint {
+    @discardableResult func ym_autoConstrainAttributeToALAttributeOfViewWithMultiplierRelation(ALAttribute:Int,toALAttribute:Int,peerView:UIView,multiplier:CGFloat,relation:NSLayoutConstraint.Relation) ->NSLayoutConstraint {
         self.translatesAutoresizingMaskIntoConstraints = false
         let attribute = UIView.ym_al_attributeForALAttribute(ALAttribute: ALAttribute)
         let toAttribute = UIView.ym_al_attributeForALAttribute(ALAttribute: toALAttribute)
@@ -413,7 +413,7 @@ extension UIView {
         var achor : Any!
         achor = viewController.topLayoutGuide
        
-        let constraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: achor, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: inset)
+        let constraint = NSLayoutConstraint(item: self, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: achor, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1.0, constant: inset)
        viewController.view.ym_al_addConstraintUsingGlobalPriority(constraint: constraint)
         return constraint
     }
@@ -423,7 +423,7 @@ extension UIView {
         var achor : Any!
         achor = viewController.bottomLayoutGuide
         
-        let constraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: achor, attribute: NSLayoutAttribute.top, multiplier: 1.0, constant: -inset)
+        let constraint = NSLayoutConstraint(item: self, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: achor, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1.0, constant: -inset)
         viewController.view.ym_al_addConstraintUsingGlobalPriority(constraint: constraint)
         return constraint
     }
@@ -468,84 +468,84 @@ extension UIView {
     ///
     /// - Parameter axis: axis
     /// - Returns: NSLayoutAttribute
-    class func ym_al_attributeForAxis(axis:YM_ALAxis) ->NSLayoutAttribute {
-        var attribute = NSLayoutAttribute.notAnAttribute
+    class func ym_al_attributeForAxis(axis:YM_ALAxis) ->NSLayoutConstraint.Attribute {
+        var attribute = NSLayoutConstraint.Attribute.notAnAttribute
         
         switch axis {
         case .ALAxisVertical:
-            attribute = NSLayoutAttribute.centerX
+            attribute = NSLayoutConstraint.Attribute.centerX
         case .ALAxisHorizontal:
-            attribute = NSLayoutAttribute.centerY
+            attribute = NSLayoutConstraint.Attribute.centerY
         case .ALAxisBaseline:
-            attribute = NSLayoutAttribute.lastBaseline
+            attribute = NSLayoutConstraint.Attribute.lastBaseline
         }
             
         return attribute
     }
     ///边距约束参数
-    class func ym_al_attributeForEdge(edge:YM_ALEdge) ->NSLayoutAttribute {
-        var attribute = NSLayoutAttribute.notAnAttribute
+    class func ym_al_attributeForEdge(edge:YM_ALEdge) ->NSLayoutConstraint.Attribute {
+        var attribute = NSLayoutConstraint.Attribute.notAnAttribute
         switch edge {
         case .ALEdgeLeft:
-            attribute = NSLayoutAttribute.left
+            attribute = NSLayoutConstraint.Attribute.left
         case .ALEdgeRight:
-            attribute = NSLayoutAttribute.right
+            attribute = NSLayoutConstraint.Attribute.right
         case .ALEdgeTop:
-            attribute = NSLayoutAttribute.top
+            attribute = NSLayoutConstraint.Attribute.top
         case .ALEdgeBottom:
-            attribute = NSLayoutAttribute.bottom
+            attribute = NSLayoutConstraint.Attribute.bottom
         case .ALEdgeLeading:
-            attribute = NSLayoutAttribute.leading
+            attribute = NSLayoutConstraint.Attribute.leading
         case .ALEdgeTrailing:
-            attribute = NSLayoutAttribute.trailing
+            attribute = NSLayoutConstraint.Attribute.trailing
         }
         return attribute
     }
     
     ///宽度和高度的参数
-    class func ym_al_attributeForDimension(dimension:YM_ALDimension) ->NSLayoutAttribute {
-        var attribute = NSLayoutAttribute.notAnAttribute
+    class func ym_al_attributeForDimension(dimension:YM_ALDimension) ->NSLayoutConstraint.Attribute {
+        var attribute = NSLayoutConstraint.Attribute.notAnAttribute
         switch dimension {
         case .ALDimensionHeight:
-            attribute = NSLayoutAttribute.height
+            attribute = NSLayoutConstraint.Attribute.height
         case.ALDimensionWidth:
-            attribute = NSLayoutAttribute.width
+            attribute = NSLayoutConstraint.Attribute.width
         }
         return attribute
     }
     
-    class func ym_al_constraintAxisForAxis(axis:YM_ALAxis) ->UILayoutConstraintAxis {
-        var attribute = UILayoutConstraintAxis.vertical
+    class func ym_al_constraintAxisForAxis(axis:YM_ALAxis) ->NSLayoutConstraint.Axis {
+        var attribute = NSLayoutConstraint.Axis.vertical
         if axis == .ALAxisHorizontal || axis == .ALAxisBaseline {
-            attribute = UILayoutConstraintAxis.horizontal
+            attribute = NSLayoutConstraint.Axis.horizontal
         }
         return attribute
     }
     
-    class func ym_al_attributeForALAttribute(ALAttribute:Int) ->NSLayoutAttribute {
-        var attribute = NSLayoutAttribute.notAnAttribute
+    class func ym_al_attributeForALAttribute(ALAttribute:Int) ->NSLayoutConstraint.Attribute {
+        var attribute = NSLayoutConstraint.Attribute.notAnAttribute
         if ALAttribute == 0 {
-            attribute = NSLayoutAttribute.left
+            attribute = NSLayoutConstraint.Attribute.left
         }else if ALAttribute == 1 {
-            attribute = NSLayoutAttribute.right
+            attribute = NSLayoutConstraint.Attribute.right
         }else if ALAttribute == 2 {
-            attribute = NSLayoutAttribute.top
+            attribute = NSLayoutConstraint.Attribute.top
         }else if ALAttribute == 3 {
-            attribute = NSLayoutAttribute.bottom
+            attribute = NSLayoutConstraint.Attribute.bottom
         }else if ALAttribute == 4 {
-            attribute = NSLayoutAttribute.leading
+            attribute = NSLayoutConstraint.Attribute.leading
         }else if ALAttribute == 5 {
-            attribute = NSLayoutAttribute.trailing
+            attribute = NSLayoutConstraint.Attribute.trailing
         }else if ALAttribute == 6 {
-            attribute = NSLayoutAttribute.width
+            attribute = NSLayoutConstraint.Attribute.width
         }else if ALAttribute == 7 {
-            attribute = NSLayoutAttribute.height
+            attribute = NSLayoutConstraint.Attribute.height
         }else if ALAttribute == 8 {
-            attribute = NSLayoutAttribute.centerX
+            attribute = NSLayoutConstraint.Attribute.centerX
         }else if ALAttribute == 9 {
-            attribute = NSLayoutAttribute.centerY
+            attribute = NSLayoutConstraint.Attribute.centerY
         }else if ALAttribute == 10 {
-            attribute = NSLayoutAttribute.lastBaseline
+            attribute = NSLayoutConstraint.Attribute.lastBaseline
         }
         return attribute
     }
