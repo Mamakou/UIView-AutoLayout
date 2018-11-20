@@ -1,5 +1,5 @@
 # UIView-AutoLayout
-swift版本的UIView+AutoLayout，简单方便，拖拽入项目即完成导入
+swift版本的UIView+AutoLayout，简单方便，拖拽入项目即完成导入，绝对比snapKit好用。不信你试一试就知道了。
 
 如何使用。用过oc版的UIView+AutoLayout 肯定也不少，其实这个是仿照它写的，主要是为了学习大神的代码思想，顺便熟悉下swift语法，不喜勿喷哈！
 
