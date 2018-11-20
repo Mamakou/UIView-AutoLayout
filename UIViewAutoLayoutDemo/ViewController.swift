@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         fisrtViewLabel2.ym_autoPinEdgeToEdgeOfViewWithOffset(edge: .ALEdgeTop, toEdge: .ALEdgeBottom, peerView: firstViewLabel, offset: 5)
         
         
-        var secondView = UIView()
+        let secondView = UIView()
         self.secondView = secondView
         secondView.backgroundColor = UIColor.purple
         self.view.addSubview(secondView)
